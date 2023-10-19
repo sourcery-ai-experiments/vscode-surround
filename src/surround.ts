@@ -81,15 +81,8 @@ function getSurroundConfig(): ISurroundConfig {
   return { ...items, ...custom };
 }
 
-function getEnabledSurroundItems(surroundConfig: ISurroundConfig) {
-  const items: ISurroundItem[] = [];
-  Object.keys(surroundConfig).forEach((surroundItemKey) => {
-    const surroundItem: ISurroundItem = surroundConfig[surroundItemKey];
-    if (!surroundItem.disabled) {
-      items.push(surroundItem);
-    }
-  });
-  return items;
+function getEnabledSurroundItems(surroundConfig: ISurroundConfig): ISurroundItem[] {
+  return Object.values(surroundConfig).filter((surroundItem) => !surroundItem.disabled);
 }
 
 function trimSelection(selection: Selection): Selection | undefined {
@@ -154,43 +147,42 @@ function trimSelection(selection: Selection): Selection | undefined {
 
 function trimSelections(): void {
   let activeEditor = window.activeTextEditor;
-  if (activeEditor && activeEditor.selections) {
-    const selections: Selection[] = [];
-
-    activeEditor.selections.forEach((selection) => {
-      if (
-        selection.start.line === selection.end.line &&
-        selection.start.character === selection.end.character
-      ) {
-        return selections.push(selection);
-      }
-
-      const trimmedSelection = trimSelection(selection);
-      if (trimmedSelection) {
-        selections.push(trimmedSelection);
-      }
-    });
-
-    activeEditor.selections = selections;
+  if (!activeEditor || !activeEditor.selections) {
+    return;
   }
+  
+  const selections: Selection[] = activeEditor.selections.map((selection) => {
+    const { start, end } = selection;
+
+    if (start.line === end.line && start.character === end.character) {
+      return selection;
+    }
+
+    const trimmedSelection = trimSelection(selection);
+    return trimmedSelection || selection;
+  });;
+
+  
+
+  activeEditor.selections = selections;
 }
 
 function applyQuickPick(item: QuickPickItem, surroundItems: ISurroundItem[]) {
   const activeEditor = window.activeTextEditor;
 
-  if (activeEditor && item) {
-    const surroundItem = surroundItems.find((s) => item.label === s.label);
-    if (surroundItem) {
-      try {
-        trimSelections();
-        activeEditor.insertSnippet(new SnippetString(surroundItem.snippet));
-      } catch (err) {
-        window.showErrorMessage(
-          "Could not apply surround snippet: " + surroundItem.label,
-          String(err)
-        );
-      }
-    }
+  if (!activeEditor || !item) { return; }
+
+  const surroundItem = surroundItems.find((s) => item.label === s.label);
+  if (!surroundItem) { return; }
+  
+  try {
+    trimSelections();
+    activeEditor.insertSnippet(new SnippetString(surroundItem.snippet));
+  } catch (err) {
+    window.showErrorMessage(
+      "Could not apply surround snippet: " + surroundItem.label,
+      String(err)
+    );
   }
 }
 
@@ -203,21 +195,20 @@ function applySurroundItem(key: string, surroundConfig: ISurroundConfig) {
   }
 }
 
-function registerCommands(
+async function registerCommands(
   context: ExtensionContext,
   surroundConfig: ISurroundConfig
 ) {
-  commands.getCommands().then((cmdList) => {
-    Object.keys(surroundConfig).forEach((key) => {
-      const cmdText = `surround.with.${key}`;
-      if (cmdList.indexOf(cmdText) === -1) {
-        context.subscriptions.push(
-          commands.registerCommand(cmdText, () => {
-            applySurroundItem(key, surroundConfig);
-          })
-        );
-      }
-    });
+  const registeredCommands = await commands.getCommands();
+  Object.keys(surroundConfig).forEach((key) => {
+    const commandText = `surround.with.${key}`;
+    if (!registeredCommands.includes(commandText)) {
+      context.subscriptions.push(
+        commands.registerCommand(commandText, () => {
+          applySurroundItem(key, surroundConfig);
+        })
+      );
+    }
   });
 }
 
@@ -279,18 +270,18 @@ async function showMessage(version: string, previousVersion?: string) {
 
   const result = await window.showInformationMessage(message, ...actions);
 
-  if (result !== null) {
-    if (result === whatsNew) {
-      await env.openExternal(
-        Uri.parse("https://github.com/yatki/vscode-surround/releases")
-      );
-    } else if (result === giveAStar) {
-      await env.openExternal(
-        Uri.parse("https://github.com/yatki/vscode-surround")
-      );
-    } else if (result === sponsor) {
+  switch (result) {
+    case whatsNew:
+      await env.openExternal(Uri.parse("https://github.com/yatki/vscode-surround/releases"));
+      break;
+    case giveAStar:
+      await env.openExternal(Uri.parse("https://github.com/yatki/vscode-surround"));
+      break;
+    case sponsor:
       await env.openExternal(Uri.parse("https://github.com/sponsors/yatki"));
-    }
+      break;
+    default:
+      break;
   }
 }
 
