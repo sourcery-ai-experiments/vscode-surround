@@ -58,9 +58,6 @@
     "color": "#c2e1ea",
     "theme": "light"
   },
-  "activationEvents": [
-    "*"
-  ],
   "main": "./out/surround.js",
   "browser": "./out/surround.js",
   "contributes": {
@@ -283,32 +280,31 @@
             "snippet": "// #region ${1:regionName}\n$TM_SELECTED_TEXT\n// #endregion$0"
           }
         },
-<<<<<<< HEAD
         "surround.with.literalVariable": {
           "type": "object",
           "default": {
             "label": "literalVariable",
             "description": "${...}",
             "disabled": false,
-            "snippet": "${$TM_SELECTED_TEXT}"
-=======
-        "surround.with.templateLiteral": {
-          "type": "object",
-          "default": {
-            "label": "Template Literal",
-            "description": "`...` (Also replaces single and double quotes with backtick)",
-            "disabled": false,
-            "snippet": "`${TM_SELECTED_TEXT/['\"](.*?)['\"]/$1/g}`$0"
-          }
-        },
-        "surround.with.templateLiteralVariable": {
-          "type": "object",
-          "default": {
-            "label": "Template Literal Variable",
-            "description": "`${...}` (Also replaces single and double quotes with backtick)",
-            "disabled": false,
-            "snippet": "`$1\\${${TM_SELECTED_TEXT/['\"](.*?)['\"]/$1/g}}$2`$0"
->>>>>>> new-branch-name
+            "snippet": "${$TM_SELECTED_TEXT}",
+            "surround.with.templateLiteral": {
+              "type": "object",
+              "default": {
+                "label": "Template Literal",
+                "description": "`...` (Also replaces single and double quotes with backtick)",
+                "disabled": false,
+                "snippet": "`${TM_SELECTED_TEXT/['\"](.*?)['\"]/$1/g}`$0"
+              }
+            },
+            "surround.with.templateLiteralVariable": {
+              "type": "object",
+              "default": {
+                "label": "Template Literal Variable",
+                "description": "`${...}` (Also replaces single and double quotes with backtick)",
+                "disabled": false,
+                "snippet": "`$1\\${${TM_SELECTED_TEXT/['\"](.*?)['\"]/$1/g}}$2`$0"
+              }
+            }
           }
         }
       }
@@ -419,12 +415,8 @@
         "category": "Surround With"
       },
       {
-<<<<<<< HEAD
         "command": "surround.with.literalVariable",
         "title": "literalVariable",
-=======
-        "command": "surround.with.iife",
-        "title": "IIFE",
         "category": "Surround With"
       },
       {
@@ -435,7 +427,6 @@
       {
         "command": "surround.with.templateLiteralVariable",
         "title": "Template Literal Variable",
->>>>>>> new-branch-name
         "category": "Surround With"
       }
     ],
