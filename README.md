@@ -47,6 +47,32 @@ to get list of commands and pick one of them.
 
 ### List of commands
 
+<<<<<<< HEAD
+| Command                                  | Snippet                                                         |
+| ---------------------------------------- | --------------------------------------------------------------- |
+| `surround.with` (ctrl+shift+T)           | List of all the enabled commands below                          |
+| `surround.with.if`                       | if (\$condition) { `...` }                                      |
+| `surround.with.ifElse`                   | if ($condition) { `...` } else { $else }                        |
+| `surround.with.tryCatch`                 | try { `...` } catch (err) { \$catchBlock }                      |
+| `surround.with.tryFinally`               | try { `...` } finally { \$finalBlock }                          |
+| `surround.with.tryCatchFinally`          | try { `...` } catch (err) {$catchBlock} finally { $finalBlock } |
+| `surround.with.for`                      | for (\$1) { `...` }                                             |
+| `surround.with.fori`                     | for (let i = 0; `...` ; i = i + 1) { `...` }                    |
+| `surround.with.forEach`                  | items.forEach((item) => { `...` })                              |
+| `surround.with.forEachAsync`             | items.forEach(async (item) => { `...` })                        |
+| `surround.with.forEachFn`                | items.forEach(function (item) { `...` })                        |
+| `surround.with.forEachAsyncFn`           | items.forEach(async function (item) { `...` })                  |
+| `surround.with.arrowFunction`            | const $name = ($params) => { `...` }                            |
+| `surround.with.asyncArrowFunction`       | const $name = async ($params) => { `...` }                      |
+| `surround.with.functionDeclaration`      | function $name ($params) { `...` }                              |
+| `surround.with.asyncFunctionDeclaration` | async function $name ($params) { `...` }                        |
+| `surround.with.functionExpression`       | const $name = function ($params) { `...` }                      |
+| `surround.with.asyncFunctionExpression`  | const $name = async function ($params) { `...` }                |
+| `surround.with.element`                  | \<element\>`...`\</element\>                                    |
+| `surround.with.comment`                  | /\*\* `...` \*/                                                 |
+| `surround.with.region`                   | #region \$regionName `...` #endregion                           |
+| `surround.with.literalVariable`          | \${`...`}                                                       |
+=======
 | Command                                            | Snippet                                                         |
 | -------------------------------------------------- | --------------------------------------------------------------- |
 | `surround.with` (ctrl+shift+T)                     | List of all the enabled commands below                          |
@@ -79,6 +105,7 @@ to get list of commands and pick one of them.
 - `showOnlyUserDefinedSnippets` (boolean): Disables default snippets that comes with the extension and shows only used defined snippets.
 - `showRecentlyUsedFirst` (boolean): Recently used snippets will be displayed on top.
 - `showUpdateNotifications` (boolean): Shows notification when there is a new version of the extension.
+>>>>>>> new-branch-name
 
 ## Configuration
 
@@ -110,6 +137,13 @@ Example `surround.with.if`:
 }
 ```
 
+<<<<<<< HEAD
+> Hint
+>
+> If you want to edit or disable the snippets for only one project and leave them available for others, you can use "Workspace Settings" and disable or add snippets for only one project.
+
+=======
+>>>>>>> new-branch-name
 ### Adding new custom wrapper functions
 
 Go to "Settings" and search for `surround.custom` and edit it like below.
@@ -129,6 +163,13 @@ Go to "Settings" and search for `surround.custom` and edit it like below.
   }
 }
 ```
+<<<<<<< HEAD
+
+> Hint
+>
+> If you want to add the snippets for only one project, you can use "Workspace Settings" and disable or add snippets for only one project.
+=======
+>>>>>>> new-branch-name
 
 ### Defining language-specific snippets
 
