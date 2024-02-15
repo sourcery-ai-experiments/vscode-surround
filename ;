@@ -1,0 +1,21 @@
+Revert "Commit message here"
+
+This reverts commit e4ca6261ad77d6f9de7c475c2afada2cd4b482cc.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+
+
+# HEAD detached at refs/heads/origin/47-literalVariable-template
+# Changes to be committed:
+#	deleted:    .DS_Store
+   
+
+
+			
+
+
+;qa
+
+.git/COMMIT_EDITMSG
