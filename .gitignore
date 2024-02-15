@@ -2,5 +2,5 @@ out
 node_modules
 .vscode-test/
 *.vsix
-.vscode/
-.history/
+.vscode-test-web
+.fake

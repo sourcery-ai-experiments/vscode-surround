@@ -4,6 +4,8 @@ out/test/**
 out/**/*.map
 src/**
 .gitignore
-tsconfig.json
-vsc-extension-quickstart.md
-tslint.json
+**/tsconfig.json
+**/.eslintrc.json
+**/*.map
+**/*.ts
+jest.config.js
