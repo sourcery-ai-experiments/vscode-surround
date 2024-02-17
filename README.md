@@ -5,17 +5,18 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/yatki/vscode-surround.svg?style=flat-square)](https://github.com/yatki/vscode-surround)
 [![License](https://img.shields.io/github/license/yatki/vscode-surround.svg?style=flat-square)](https://github.com/yatki/vscode-surround)
 
-<p align="center">
-<br />
-<img src="https://raw.githubusercontent.com/yatki/vscode-surround/master/images/logo.png">
-</p>
-<p align="center">
+<"center">
+
+[![img ](https://raw.githubusercontent.com/yatki/vscode-surround/master/images/logo.png?style=flat-square>)]
+
+ <"center">
 A simple yet powerful extension to add wrapper snippets around your code blocks.
-</p>
+</>
 
 ## Features
 
-- Supports **language identifiers** 🚀**New!**
+- Now works on [VSCode for Web](https://code.visualstudio.com/docs/editor/vscode-web) 🚀**New!**
+- Supports **ENG,THA**
 - Supports **multi** selections
 - Fully **customizable**
 - **Custom** wrapper snippets
@@ -113,21 +114,19 @@ Example `surround.with.if`:
 
 Go to "Settings" and search for `surround.custom` and edit it like below.
 
-```js
 {
   "surround.custom": {
     // command name must be unique
     "yourCommandName": {
       // label must be unique
-      "label": "Your Snippet Label",
-      "description": "Your Snippet Description",
+      "label": "G  ",
+      "description": "ladyBugs ",
       "snippet": "burrito { $TM_SELECTED_TEXT }$0", // <-- snippet goes here.
       "languageIds": ["html", "javascript", "typescript", "markdown"]
     },
     // You can add more ...
   }
 }
-```
 
 ### Defining language-specific snippets
 
@@ -155,7 +154,6 @@ If you want to allow a snippet to work for all document types, simply **REMOVE**
 
 If you want to allow a snippet to work with `html`, `typescript` and `typescriptreact` documents, you can use the example below.
 
-```jsonc
 {
   "label": "if",
   "description": "if ($condition) { ... }",
@@ -163,7 +161,6 @@ If you want to allow a snippet to work with `html`, `typescript` and `typescript
   "snippet": "if(${1:condition}) {\n\t$TM_SELECTED_TEXT\n}$0",
   "languageIds": ["html", "typescript", "typescriptreact"]
 }
-```
 
 #### 3. Disabling a snippet for ONLY specified languages
 
@@ -180,16 +177,17 @@ you can add `-` (MINUS) sign as a prefix to the language identifiers (_without_ 
 }
 ```
 
-### IMPORTANT NOTES:
+### IMPORTANT NOTES
 
-1.  All **command names** and **labels** must be unique. If you do not provide a **unique** command name or label, your custom wrapper functions will override existing ones.
-1.  You can redefine all snippets as long as you provide a valid `SnippetString`. [Read More](https://code.visualstudio.com/docs/extensionAPI/vscode-api#SnippetString)
+1.All **command names**and **labels**must be unique. If you do not provide a **unique**command name or label, your custom wrapper functions will override existing ones.
+
+1.You can redefine all snippets as long as you provide a valid `SnippetString`. [Read More](https://code.visualstudio.com/docs/extensionAPI/vscode-api#SnippetString)
 
 ## Contribution
 
 As always, I'm open to any contribution and would like to hear your feedback.
 
-### Just an important reminder:
+### Just an important reminder
 
 If you are planning to contribute to **any** open source project,
 before starting development, please **always open an issue** and **make a proposal first**.

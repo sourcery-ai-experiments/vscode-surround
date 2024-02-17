@@ -1,16 +1,16 @@
 import {
-  workspace,
   ExtensionContext,
-  commands,
-  window,
-  QuickPickItem,
-  SnippetString,
-  extensions,
   MessageItem,
-  env,
-  Uri,
-  Selection,
   Position,
+  QuickPickItem,
+  Selection,
+  SnippetString,
+  Uri,
+  commands,
+  env,
+  extensions,
+  window,
+  workspace,
 } from "vscode";
 
 interface ISurroundItem {

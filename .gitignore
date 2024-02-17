@@ -2,5 +2,6 @@ out
 node_modules
 .vscode-test/
 *.vsix
-
-.vscode-test-web/
+.vscode-test-web
+.fake
+index.js
