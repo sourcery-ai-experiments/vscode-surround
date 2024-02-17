@@ -9,5 +9,9 @@
   // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
   "typescript.tsc.autoDetect": "on",
   "vscode-corda.isCordaProject": false,
-  "breadcrumbs.enabled": false
+  "breadcrumbs.enabled": false,
+  "csharp.debug.logging.diagnosticsLog.protocolMessages": true,
+  "dotnet.preferCSharpExtension": true,
+  "dotnet.server.useOmnisharp": true,
+  "omnisharp.enableMsBuildLoadProjectsOnDemand": true
 }
