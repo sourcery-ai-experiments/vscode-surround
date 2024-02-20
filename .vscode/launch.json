@@ -6,11 +6,31 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch via NPM",
+      "request": "launch",
+      "runtimeArgs": [
+        "run-script",
+        "debug"
+      ],
+      "runtimeExecutable": "npm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+
+
+
+    {
       "name": "Run Extension",
       "type": "extensionHost",
       "request": "launch",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
-      "outFiles": ["${workspaceFolder}/out/**/*.js"],
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ],
       "preLaunchTask": "${defaultBuildTask}"
     },
     {
@@ -21,20 +41,87 @@
         "--extensionDevelopmentPath=${workspaceFolder}",
         "--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
       ],
-      "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
+      "outFiles": [
+        "${workspaceFolder}/out/test/**/*.js"
+      ],
       "preLaunchTask": "${defaultBuildTask}"
     },
     {
-      "name": "Run Web Extension ",
-      "type": "pwa-extensionHost",
-      "debugWebWorkerHost": true,
+      "type": "node",
+      "name": "vscode-jest-tests.v2.unit-tests-1708438704540",
       "request": "launch",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--extensionDevelopmentKind=web"
+        "test",
+        "--config=jest.unit.config.js",
+        "--runInBand",
+        "--watchAll=false",
+        "--testNamePattern",
+        "${jest.testNamePattern}",
+        "--runTestsByPath",
+        "${jest.testFile}"
       ],
-      "outFiles": ["${workspaceFolder}/out/web/**/*.js"],
-      "preLaunchTask": "npm: watch-web"
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "runtimeExecutable": "yarn"
+    },
+    
+    {
+      "type": "node",
+      "name": "vscode-jest-tests.v2.unit-tests-1708438704540",
+      "request": "launch",
+      "args": [
+        "test",
+        "--config=jest.unit.config.js",
+        "--runInBand",
+        "--watchAll=false",
+        "--testNamePattern",
+        "${jest.testNamePattern}",
+        "--runTestsByPath",
+        "${jest.testFile}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "runtimeExecutable": "yarn"
+    },
+    {
+      "type": "node",
+      "name": "vscode-jest-tests.v2.unit-tests",
+      "request": "launch",
+      "args": [
+        "test",
+        "--config=jest.unit.config.js",
+        "--runInBand",
+        "--watchAll=false",
+        "--testNamePattern",
+        "${jest.testNamePattern}",
+        "--runTestsByPath",
+        "${jest.testFile}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "runtimeExecutable": "yarn"
+    },
+    {
+      "type": "node",
+      "name": "vscode-jest-tests.v2.integration-tests",
+      "request": "launch",
+      "args": [
+        "test",
+        "--config=jest.integration.config.js",
+        "--runInBand",
+        "--watchAll=false",
+        "--testNamePattern",
+        "${jest.testNamePattern}",
+        "--runTestsByPath",
+        "${jest.testFile}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "runtimeExecutable": "yarn"
     }
   ]
 }

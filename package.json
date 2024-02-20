@@ -58,9 +58,6 @@
     "color": "#c2e1ea",
     "theme": "light"
   },
-  "activationEvents": [
-    "*"
-  ],
   "main": "./out/surround.js",
   "browser": "./out/web/surround-web.js",
   "contributes": {
