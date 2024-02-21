@@ -1,0 +1,23 @@
+HTTP/2 200 
+server: GitHub.com
+date: Tue, 20 Feb 2024 19:45:43 GMT
+content-type: text/plain;charset=utf-8
+content-length: 19
+x-github-api-version-selected: 2022-11-28
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 49
+x-ratelimit-reset: 1708459931
+x-ratelimit-used: 11
+x-ratelimit-resource: core
+access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+access-control-allow-origin: *
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: default-src 'none'
+vary: Accept-Encoding, Accept, X-Requested-With
+x-github-request-id: EEA1:BDAFA:781574:7EF81D:65D50167
+
+Accessible for all.
