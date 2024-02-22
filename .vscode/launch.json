@@ -1,22 +1,15 @@
-// A launch configuration that compiles the extension and then opens it inside a new window
-// Use IntelliSense to learn about possible attributes.
-// Hover to view descriptions of existing attributes.
-// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
 {
   "version": "0.2.0",
   "configurations": [
-
     {
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "skipFiles": ["<node_internals>/**"],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
       "program": "${workspaceFolder}\\app.js"
     },
-
-
-
-
     {
       "name": "Launch via NPM",
       "request": "launch",
@@ -149,6 +142,14 @@
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "runtimeExecutable": "yarn"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/babynong/Documents/GitHub/Git2/vscode-surround",
+      "program": "/Users/babynong/Documents/GitHub/Git2/vscode-surround/build/Debug/outDebug"
     }
   ]
 }
