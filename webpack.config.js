@@ -9,15 +9,15 @@
 //@ts-check
 /** @typedef {import('webpack').Configuration} WebpackConfig **/
 
-const path = require("path");
+const path = import('path');
 const webpack = require("webpack");
 
 /** @type WebpackConfig */
-const webExtensionConfig = {
+const WebpackConfig = {
   mode: "none", // this leaves the source code as close as possible to the original (when packaging we set this to 'production')
   target: "webworker", // extensions run in a webworker context
   entry: {
-    extension: "./src/surround.ts",
+    extension: "/Users/babynong/Documents/GitHub/Git2/vscode-surround/",
   },
   output: {
     filename: "surround-web.js",
