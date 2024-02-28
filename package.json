@@ -280,31 +280,13 @@
             "snippet": "// #region ${1:regionName}\n$TM_SELECTED_TEXT\n// #endregion$0"
           }
         },
-        "surround.with.literalVariable": {
+        "surround.with.templateLiteralVariable": {
           "type": "object",
           "default": {
-            "label": "literalVariable",
-            "description": "${...}",
+            "label": "Template Literal Variable",
+            "description": "`${...}` (Also replaces single and double quotes with backtick)",
             "disabled": false,
-            "snippet": "${$TM_SELECTED_TEXT}",
-            "surround.with.templateLiteral": {
-              "type": "object",
-              "default": {
-                "label": "Template Literal",
-                "description": "`...` (Also replaces single and double quotes with backtick)",
-                "disabled": false,
-                "snippet": "`${TM_SELECTED_TEXT/['\"](.*?)['\"]/$1/g}`$0"
-              }
-            },
-            "surround.with.templateLiteralVariable": {
-              "type": "object",
-              "default": {
-                "label": "Template Literal Variable",
-                "description": "`${...}` (Also replaces single and double quotes with backtick)",
-                "disabled": false,
-                "snippet": "`$1\\${${TM_SELECTED_TEXT/['\"](.*?)['\"]/$1/g}}$2`$0"
-              }
-            }
+            "snippet": "`$1\\${${TM_SELECTED_TEXT/['\"](.*?)['\"]/$1/g}}$2`$0"
           }
         }
       }
